@@ -6,7 +6,7 @@ try:
     print("✅ Using Evan's Gesture Engine")
 except ImportError:
     from gesture_engine_temp import GestureEngine
-    print("⚙️ Using temporary Gesture Engine (Nael’s version)")
+    print("⚙️ Using basic temporary Gesture Engine")
 
 engine = GestureEngine()
 
