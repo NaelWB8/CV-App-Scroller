@@ -11,7 +11,7 @@ pyautogui.FAILSAFE = False
 SMOOTHING = 5             # number of frames for moving average
 PINCH_THRESHOLD = 0.04    # normalized distance threshold for pinch (adjust)
 CLENCH_THRESHOLD = 0.65   # avg curl threshold for clench (adjust)
-SCROLL_STEP = 300         # scroll amount when clench up/down
+SCROLL_STEP = 300         # scroll amount when clench moving up/down
 
 # Setup
 mp_hands = mp.solutions.hands
@@ -130,3 +130,110 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows() 
+
+'''
+🚀 Improvement Plan for Evan
+1️⃣ Hand Detection Optimization
+
+Focus: Improve reliability and FPS across lighting and skin tones
+To-Do:
+
+Add auto-exposure & white-balance normalization with OpenCV.
+
+Experiment with MediaPipe’s “Hands” vs “Holistic” to see which gives smoother landmark tracking.
+
+Smooth landmark jitter with One-Euro Filter or exponential moving average.
+Goal Output:
+Stable landmark tracking (<3 px jitter at 30 FPS).
+
+2️⃣ Gesture Definition & Detection Logic
+
+Focus: Expand beyond pinch detection.
+To-Do:
+
+Define gestures:
+
+Pinch (index + thumb) → cursor
+
+Release → click
+
+Clench → hold
+
+Palm up/down while clenched → scroll
+
+Compute Euclidean distance & angles between landmarks for detection.
+
+Use state machine logic to prevent flickering between gestures (e.g., debounce 3–5 frames before switching states).
+Goal Output:
+Consistent gesture classification (≥ 95 % accuracy).
+
+3️⃣ Cursor Mapping Improvements
+
+Focus: Natural and accurate screen control.
+To-Do:
+
+Normalize MediaPipe coordinates (0–1) → screen resolution.
+
+Add smoothing & acceleration curve (so small hand motions produce smooth cursor movement).
+
+Calibrate region of interest (ROI) dynamically depending on camera distance.
+Goal Output:
+Usable pointer control without overshoot; motion latency < 80 ms.
+
+4️⃣ Gesture Stability & Threshold Calibration
+
+Focus: Reduce false positives.
+To-Do:
+
+Auto-calibrate thresholds using median distances over 10 frames.
+
+Add adaptive confidence levels based on landmark visibility.
+
+Log gesture probabilities to CSV for threshold tuning.
+Goal Output:
+< 5 % false-positive rate in test matrix.
+
+5️⃣ Modular Architecture
+
+Focus: Make your code plug-and-play for Nael’s receiver.
+To-Do:
+
+Refactor into a class-based system:
+
+class GestureEngine:
+    def process_frame(self, frame): ...
+    def get_state(self): return {"cursor": (x, y), "action": "CLICK"}
+
+
+Output gestures as JSON events (e.g., {"action":"SCROLL_UP"}).
+
+Keep gesture_controller.py as the receiver that executes these actions.
+Goal Output:
+Receiver + engine communicate cleanly without code overlap.
+
+6️⃣ Logging & Debug Overlay
+
+Focus: Help QA validate easily.
+To-Do:
+
+Draw overlay boxes and gesture names (cv2.putText).
+
+Record logs (gesture type, timestamp, confidence).
+
+Export to CSV for Nael’s QA reports.
+Goal Output:
+Visual + quantitative debugging tools for every test run.
+
+7️⃣ Future Expansion Ideas
+
+Optional improvements once core is done:
+
+Integrate handedness (left/right) detection.
+
+Use temporal smoothing (detect gesture patterns over time).
+
+Add multi-hand support (e.g., one hand cursor, one hand control).
+
+Consider converting model to TensorFlow Lite for Android (Nathal’s side).
+
+'''
