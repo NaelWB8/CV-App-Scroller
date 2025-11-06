@@ -1,13 +1,13 @@
-# gesture_engine_fixed_v4.py
+# gesture_engine_fixed_v5.py
 """
-PalmCtrl — Gesture Engine (Fixed v4)
-- Accurate forward-pointing detection (PIP->TIP forward vector + angle checks)
-- Correct mirror handling: separate display coords vs screen coords
-- Performance tweak: set image.flags.writeable False before mediapipe.process
-- Return both cursor_norm_screen and cursor_norm_display so Dev B chooses mapping
-- Demo toggles: m = toggle preview mirror, s = toggle map_to_screen (which cursor_norm_screen updates)
+PalmCtrl — Gesture Engine (Fixed v5)
+Improvements:
+ - min_hand_score gating
+ - short-dropout tolerance (keep/predict cursor for N frames)
+ - EMA smoothing + velocity prediction to keep cursor stable during brief dropouts
+ - tighter debug HUD showing hand_score, forward_score, unseen_count
+ - returns cursor_norm_display (for preview overlay) and cursor_norm_screen (for mapping)
 """
-
 from __future__ import annotations
 import time, math
 from collections import deque
@@ -23,145 +23,172 @@ try:
 except Exception:
     PYAUTO_OK = False
 
-
+# ----------------- Config -----------------
 @dataclass
 class GestureConfig:
-    # MediaPipe / detection
     detection_confidence: float = 0.5
     tracking_confidence: float = 0.5
     max_hands: int = 1
-    model_complexity: int = 1  # set 1 for better detection accuracy
+    model_complexity: int = 1
 
-    # preview mirroring (True if the preview shown to user is mirrored like selfie preview)
     preview_mirror: bool = False
-
-    # whether the engine should produce screen-space coords for mapping to actual screen (non-mirrored)
     map_to_screen: bool = True
 
-    # Finger geometry thresholds
+    # forward pointing
     angle_extended_deg: float = 150.0
-    angle_folded_deg: float = 140.0
+    angle_folded_deg: float = 130.0
+    forward_dot_thresh: float = 0.4
+    lateral_ratio_thresh: float = 0.85
 
-    # forward pointing thresholds (PIP->TIP)
-    forward_dot_thresh: float = 0.50
-    lateral_ratio_thresh: float = 0.75
-
-    # pinch threshold for HOLD (normalized)
+    # hold pinch
     hold_pinch_thresh: float = 0.22
 
-    # smoothing
-    smooth_window_min: int = 2
-    smooth_window_max: int = 5
-    motion_threshold: float = 0.04
+    # smoothing / prediction
+    smooth_alpha_pos: float = 0.6       # EMA alpha for position (higher -> more responsive)
+    smooth_alpha_vel: float = 0.4       # EMA alpha for velocity
+    predict_frames: float = 1.0         # how many frames ahead to predict on dropout
+    max_unseen_frames_keep: int = 6     # keep/predict for this many frames when no landmarks
+    min_hand_score: float = 0.5         # require mediapipe hand score >= this
 
-    # debounce frames
-    min_stable_frames: int = 1
-
-    # scrolling
+    # debounce / scroll
+    min_stable_frames: int = 2
     scroll_enabled: bool = True
     scroll_step_norm: float = 0.015
     scroll_lines_per_step: int = 2
     scroll_invert: bool = False
 
-    # platform / demo
+    # debug / platform
     platform: str = "laptop"  # 'laptop' or 'android'
     draw_debug: bool = True
     enable_mouse_demo: bool = False
 
-
-# Utilities
+# ----------------- Utils -----------------
 mp_hands = mp.solutions.hands
 mp_draw = mp.solutions.drawing_utils
 mp_styles = mp.solutions.drawing_styles
 
-
-def _angle(a, b, c) -> float:
+def _angle(a,b,c):
     bax, bay, baz = a[0]-b[0], a[1]-b[1], a[2]-b[2]
     bcx, bcy, bcz = c[0]-b[0], c[1]-b[1], c[2]-b[2]
     dot = bax*bcx + bay*bcy + baz*bcz
     mag1 = math.sqrt(bax*bax + bay*bay + baz*baz)
     mag2 = math.sqrt(bcx*bcx + bcy*bcy + bcz*bcz)
-    if mag1 == 0 or mag2 == 0:
-        return 0.0
-    cosang = max(-1.0, min(1.0, dot / (mag1 * mag2)))
-    return math.degrees(math.acos(cosang))
+    if mag1==0 or mag2==0: return 0.0
+    cos = max(-1.0, min(1.0, dot/(mag1*mag2)))
+    return math.degrees(math.acos(cos))
 
+def _dist(a,b):
+    return math.sqrt(sum((a[i]-b[i])**2 for i in range(3)))
 
-def _dist(a, b) -> float:
-    return math.sqrt(sum((a[i] - b[i])**2 for i in range(3)))
-
-
-def _lm_array(hand_landmarks) -> List[Tuple[float, float, float]]:
+def _lm_array(hand_landmarks):
     return [(lm.x, lm.y, lm.z) for lm in hand_landmarks.landmark]
 
-
+# ----------------- Engine -----------------
 class GestureEngine:
-    def __init__(self, cfg: GestureConfig | None = None):
+    def __init__(self, cfg: GestureConfig|None = None):
         self.cfg = cfg or GestureConfig()
         self.hands = mp_hands.Hands(
             static_image_mode=False,
             max_num_hands=self.cfg.max_hands,
             model_complexity=self.cfg.model_complexity,
             min_detection_confidence=self.cfg.detection_confidence,
-            min_tracking_confidence=self.cfg.tracking_confidence,
+            min_tracking_confidence=self.cfg.tracking_confidence
         )
-
         self.state = "IDLE"
         self.prev_state = "IDLE"
         self._pending_state = None
         self._pending_count = 0
 
-        self.cursor_smooth: Deque[Tuple[float, float]] = deque(maxlen=self.cfg.smooth_window_max)
-        self.prev_cursor_display: Optional[Tuple[float, float]] = None
-        self.prev_cursor_screen: Optional[Tuple[float, float]] = None
+        # smoothed position & velocity (screen space, non-mirrored)
+        self.pos_ema: Optional[Tuple[float,float]] = None
+        self.vel_ema: Optional[Tuple[float,float]] = None
 
-        self.frame_time = time.time()
+        self.prev_cursor_display: Optional[Tuple[float,float]] = None
+        self.prev_cursor_screen: Optional[Tuple[float,float]] = None
 
+        # unseen/dropout handling
+        self.unseen_count = 0
+
+        # hold/scroll
         self._hold_anchor_y = None
         self._scroll_accum = 0.0
 
-    # helper: finger angles using MCP-PIP-TIP
-    def _finger_angles(self, lms):
+        self.frame_time = time.time()
+
+    def _finger_angles(self,lms):
         idx = _angle(lms[5], lms[6], lms[8])
         mid = _angle(lms[9], lms[10], lms[12])
         ring = _angle(lms[13], lms[14], lms[16])
         pinky = _angle(lms[17], lms[18], lms[20])
-        return {"index": idx, "middle": mid, "ring": ring, "pinky": pinky}
+        return {"index":idx, "middle":mid, "ring":ring, "pinky":pinky}
 
-    def _is_index_pointing(self, lms) -> Tuple[bool, float]:
+    def _is_index_pointing(self, lms):
         angles = self._finger_angles(lms)
         index_straight = angles["index"] >= self.cfg.angle_extended_deg
-        others_folded = (
-            angles["middle"] <= self.cfg.angle_folded_deg and
-            angles["ring"] <= self.cfg.angle_folded_deg and
-            angles["pinky"] <= self.cfg.angle_folded_deg
-        )
-        # PIP -> TIP vector
-        vx = lms[8][0] - lms[6][0]
-        vy = lms[8][1] - lms[6][1]
-        vz = lms[8][2] - lms[6][2]
+        others_folded = (angles["middle"] <= self.cfg.angle_folded_deg and
+                         angles["ring"] <= self.cfg.angle_folded_deg and
+                         angles["pinky"] <= self.cfg.angle_folded_deg)
+        vx = lms[8][0]-lms[6][0]; vy = lms[8][1]-lms[6][1]; vz = lms[8][2]-lms[6][2]
         norm = math.sqrt(vx*vx + vy*vy + vz*vz) + 1e-9
-        forward_score = -vz / norm  # higher -> more toward camera
-        lateral_ratio = abs(vx) / norm
+        forward_score = -vz/norm
+        lateral_ratio = abs(vx)/norm
         forward_ok = (forward_score >= self.cfg.forward_dot_thresh and lateral_ratio <= self.cfg.lateral_ratio_thresh)
-        # optional additional z-diff
-        zdiff_ok = (lms[8][2] - lms[6][2]) <= 0.0  # tip not farther than pip
-        is_pointing = bool(index_straight and others_folded and forward_ok and zdiff_ok)
-        return is_pointing, float(forward_score)
+        zdiff_ok = (lms[8][2]-lms[6][2]) <= 0.03  # allow a little tolerance
+        return bool(index_straight and others_folded and forward_ok and zdiff_ok), float(forward_score)
 
-    def _hold_gesture(self, lms) -> bool:
+    def _hold_gesture(self, lms):
         pointing, _ = self._is_index_pointing(lms)
-        if not pointing:
-            return False
-        thumb = lms[4]
-        mid = lms[12]
+        if not pointing: return False
+        thumb = lms[4]; mid = lms[12]
         size = max(1e-6, _dist(lms[0], lms[9]))
-        pinch = _dist(thumb, mid) / size
+        pinch = _dist(thumb, mid)/size
         return pinch <= self.cfg.hold_pinch_thresh
 
+    def _hand_score(self, result):
+        # return MediaPipe handedness score if available (0..1)
+        try:
+            if result.multi_handedness and len(result.multi_handedness)>0:
+                return float(result.multi_handedness[0].classification[0].score)
+        except Exception:
+            pass
+        return 1.0
+
+    def _update_ema_and_predict(self, new_pos:Tuple[float,float], dt:float):
+        # new_pos in screen coords (non-mirrored)
+        if self.pos_ema is None:
+            self.pos_ema = new_pos
+            self.vel_ema = (0.0, 0.0)
+            return self.pos_ema
+        # compute instantaneous velocity
+        dx = (new_pos[0] - self.pos_ema[0]) / max(dt,1e-6)
+        dy = (new_pos[1] - self.pos_ema[1]) / max(dt,1e-6)
+        # EMA update velocity and position
+        ax = self.cfg.smooth_alpha_vel
+        ay = self.cfg.smooth_alpha_pos
+        vx = ax*dx + (1-ax)*self.vel_ema[0]
+        vy = ax*dy + (1-ax)*self.vel_ema[1]
+        self.vel_ema = (vx, vy)
+        px = ay*new_pos[0] + (1-ay)*self.pos_ema[0]
+        py = ay*new_pos[1] + (1-ay)*self.pos_ema[1]
+        self.pos_ema = (px, py)
+        return self.pos_ema
+
+    def _predict_when_unseen(self, dt):
+        # dt: seconds since last actual update; use self.vel_ema to predict ahead up to predict_frames
+        if self.pos_ema is None or self.vel_ema is None: return None
+        # predict using frames as unit: predict_frames * (vel * dt_frame)
+        # convert predict_frames (frames) into seconds using last known frame delta (~1/fps)
+        # approximate using dt
+        pred_secs = self.cfg.predict_frames * dt
+        px = self.pos_ema[0] + self.vel_ema[0]*pred_secs
+        py = self.pos_ema[1] + self.vel_ema[1]*pred_secs
+        # clamp
+        px = max(0.0, min(1.0, px))
+        py = max(0.0, min(1.0, py))
+        return (px, py)
+
     def process(self, frame_bgr) -> Dict:
-        h, w = frame_bgr.shape[:2]
-        # For performance: mark as not writeable before passing to MediaPipe
+        h,w = frame_bgr.shape[:2]
         img_rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
         img_rgb.flags.writeable = False
         result = self.hands.process(img_rgb)
@@ -172,12 +199,17 @@ class GestureEngine:
         new_state = "IDLE"
         scroll_amount = 0
         forward_score_val = None
+        hand_score_val = None
 
-        if result.multi_hand_landmarks:
+        hand_found = False
+        # gate on hand score to avoid trusting spurious low-confidence detections
+        hand_score_val = self._hand_score(result) if result is not None else 0.0
+        if result and result.multi_hand_landmarks and hand_score_val >= self.cfg.min_hand_score:
+            hand_found = True
             hand = result.multi_hand_landmarks[0]
             lms = _lm_array(hand)
 
-            # Determine state: HOLD first, then pointer
+            # determine state
             if self._hold_gesture(lms):
                 new_state = "HOLD"
             else:
@@ -185,54 +217,34 @@ class GestureEngine:
                 forward_score_val = forward_score
                 if pointing:
                     new_state = "POINTER"
-                    ix, iy, _ = lms[8]
-                    # cursor in image coords:
-                    # screen coord (non-mirrored) = (ix, iy)
-                    # display coord = mirrored if preview_mirror True
-                    cursor_screen = (ix, iy)
+                    ix,iy,_ = lms[8]
+                    cursor_screen = (ix, iy)  # screen coords (non-mirrored)
+                    cursor_display = (1.0-ix, iy) if self.cfg.preview_mirror else (ix, iy)
+
+                    # update EMA & velocity using screen coords (we smooth/predict on screen-space)
+                    now = time.time()
+                    dt = max(1e-6, now - self.frame_time)
+                    # update ema: pos in screen coords
+                    ema_pos = self._update_ema_and_predict(cursor_screen, dt)
+                    # map ema->display (respect preview_mirror)
                     if self.cfg.preview_mirror:
-                        cursor_display = (1.0 - ix, iy)
+                        cursor_display = (1.0 - ema_pos[0], ema_pos[1])
+                        cursor_screen = ema_pos
                     else:
-                        cursor_display = (ix, iy)
-
-                    # adaptive smoothing using display coords (because we draw on preview)
-                    # choose which cursor we smooth for display; smoothing affects both though
-                    smoothing_src = cursor_display
-                    if self.prev_cursor_display is not None:
-                        motion = math.hypot(smoothing_src[0] - self.prev_cursor_display[0],
-                                            smoothing_src[1] - self.prev_cursor_display[1])
-                    else:
-                        motion = 0.0
-
-                    desired_len = self.cfg.smooth_window_min if motion > self.cfg.motion_threshold else self.cfg.smooth_window_max
-                    old = list(self.cursor_smooth)
-                    self.cursor_smooth = deque(old[-desired_len:], maxlen=desired_len)
-                    self.cursor_smooth.append(smoothing_src)
-                    sx = sum([p[0] for p in self.cursor_smooth]) / len(self.cursor_smooth)
-                    sy = sum([p[1] for p in self.cursor_smooth]) / len(self.cursor_smooth)
-                    cursor_display = (sx, sy)
-
-                    # derive screen cursor from display cursor properly:
-                    if self.cfg.preview_mirror:
-                        # display = 1 - screen => screen = 1 - display
-                        cursor_screen = (1.0 - cursor_display[0], cursor_display[1])
-                    else:
-                        cursor_screen = cursor_display
-
+                        cursor_display = ema_pos
+                        cursor_screen = ema_pos
                     self.prev_cursor_display = cursor_display
                     self.prev_cursor_screen = cursor_screen
                 else:
                     # not pointing
-                    self.cursor_smooth.clear()
                     self.prev_cursor_display = None
                     self.prev_cursor_screen = None
-
-            # HOLD scroll logic uses screen-space movement (so it controls actual content)
+                    # clear ema? keep it to allow faster reacquire
+            # scroll logic uses screen coords (persist across preview mirroring)
             if self.cfg.scroll_enabled and new_state == "HOLD" and self.prev_cursor_screen is not None:
                 if self._hold_anchor_y is None:
                     self._hold_anchor_y = self.prev_cursor_screen[1]
                     self._scroll_accum = 0.0
-                # screen coords: y increases downwards; positive dy => hand moved down
                 dy = self.prev_cursor_screen[1] - self._hold_anchor_y
                 if self.cfg.scroll_invert:
                     dy *= -1
@@ -246,20 +258,44 @@ class GestureEngine:
                 self._hold_anchor_y = None
                 self._scroll_accum = 0.0
 
-            # draw landmarks and display cursor on the frame we'll show to the user
             if self.cfg.draw_debug:
-                mp_draw.draw_landmarks(
-                    frame_bgr,
-                    hand,
-                    mp_hands.HAND_CONNECTIONS,
-                    mp_styles.get_default_hand_landmarks_style(),
-                    mp_styles.get_default_hand_connections_style(),
-                )
-                if cursor_display is not None:
-                    cx, cy = int(cursor_display[0] * w), int(cursor_display[1] * h)
-                    cv2.circle(frame_bgr, (cx, cy), 8, (0, 255, 0), -1)
+                mp_draw.draw_landmarks(frame_bgr, hand, mp_hands.HAND_CONNECTIONS,
+                                      mp_styles.get_default_hand_landmarks_style(),
+                                      mp_styles.get_default_hand_connections_style())
 
-        # commit state with min_stable_frames debounce
+                if self.prev_cursor_display is not None:
+                    cx,cy = int(self.prev_cursor_display[0]*w), int(self.prev_cursor_display[1]*h)
+                    cv2.circle(frame_bgr, (cx,cy), 8, (0,255,0), -1)
+
+        # If no valid hand this frame but we had one recently: hold/predict
+        if not hand_found:
+            self.unseen_count += 1
+            if self.unseen_count <= self.cfg.max_unseen_frames_keep and self.pos_ema is not None:
+                # predict using last dt approx (safe fallback)
+                now = time.time()
+                dt = max(1e-6, now - self.frame_time)
+                pred = self._predict_when_unseen(dt)
+                if pred is not None:
+                    # map to display
+                    cursor_screen = pred
+                    cursor_display = (1.0 - pred[0], pred[1]) if self.cfg.preview_mirror else pred
+                    self.prev_cursor_screen = cursor_screen
+                    self.prev_cursor_display = cursor_display
+                    # keep state as previous (do not generate HOLD_START/HOLD_END during short dropout)
+                    new_state = self.state
+            else:
+                # beyond tolerance -> treat as lost
+                self.pos_ema = None
+                self.vel_ema = None
+                self.prev_cursor_display = None
+                self.prev_cursor_screen = None
+                self.unseen_count = 0
+                new_state = "IDLE"
+
+        if hand_found:
+            self.unseen_count = 0
+
+        # state smoothing (debounce)
         if new_state == self.state:
             self._pending_state = None
             self._pending_count = 0
@@ -287,104 +323,84 @@ class GestureEngine:
         fps = 1.0 / (now - self.frame_time) if now > self.frame_time else 0.0
         self.frame_time = now
 
-        # optional laptop demo: move OS cursor using screen coords if requested
+        # laptop demo OS cursor mapping (use screen coords)
         if (self.cfg.platform == "laptop" and self.cfg.enable_mouse_demo and PYAUTO_OK and self.prev_cursor_screen is not None):
             try:
                 sw, sh = pyautogui.size()
-                px = max(0.0, min(1.0, self.prev_cursor_screen[0]))
-                py = max(0.0, min(1.0, self.prev_cursor_screen[1]))
-                pyautogui.moveTo(px * sw, py * sh)
+                px = max(0.0, min(1.0, self.prev_cursor_screen[0])); py = max(0.0, min(1.0, self.prev_cursor_screen[1]))
+                pyautogui.moveTo(px*sw, py*sh)
                 if scroll_amount != 0:
                     pyautogui.scroll(-scroll_amount)
             except Exception:
                 pass
 
         if self.cfg.draw_debug:
-            hud = f"State:{self.state} FPS:{fps:.1f} Plat:{self.cfg.platform} PreviewMirror:{self.cfg.preview_mirror}"
-            cv2.putText(frame_bgr, hud, (8, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
-            if forward_score_val is not None:
-                cv2.putText(frame_bgr, f"forward:{forward_score_val:.2f}", (8, 44), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (220,220,0), 1)
+            hud = f"State:{self.state} FPS:{fps:.1f} hand_score:{hand_score_val:.2f} forward:{(forward_score_val or 0):.2f} unseen:{self.unseen_count}"
+            cv2.putText(frame_bgr, hud, (8,20), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255,255,255), 2)
 
-        # Important: if preview_mirror is True, flip the frame we show to the user (so preview matches common selfie preview)
         display_frame = frame_bgr
         if self.cfg.preview_mirror:
             display_frame = cv2.flip(frame_bgr, 1)
 
         return {
             "state": self.state,
-            "cursor_norm_screen": self.prev_cursor_screen,    # use for system actions
-            "cursor_norm_display": self.prev_cursor_display,  # use for overlay drawing on preview
+            "cursor_norm_screen": self.prev_cursor_screen,
+            "cursor_norm_display": self.prev_cursor_display,
             "events": events,
             "scroll": scroll_amount,
             "fps": fps,
             "frame": display_frame,
         }
 
-
-# Demo control
+# ------------- Demo (same controls) -----------------
 def demo(cam_index=0):
     cfg = GestureConfig()
     engine = GestureEngine(cfg)
     cap = cv2.VideoCapture(cam_index)
     cap.set(cv2.CAP_PROP_FPS, 30); cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640); cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-    print("Demo: ESC/q quit | m toggle preview mirror | s toggle map_to_screen | p toggle platform | c calibrate")
-
+    print("Demo: ESC/q quit | m toggle preview mirror | p toggle platform | c calibrate")
     try:
         while True:
             ok, frame = cap.read()
             if not ok:
                 break
             out = engine.process(frame)
-            win = "PalmCtrl v4"
-            cv2.imshow(win, out["frame"])
+            cv2.imshow("PalmCtrl v5", out["frame"])
             key = cv2.waitKey(1) & 0xFF
             if key in (27, ord('q')):
                 break
-            elif key == ord('m'):
-                cfg.preview_mirror = not cfg.preview_mirror
-                print("preview_mirror:", cfg.preview_mirror)
-            elif key == ord('s'):
-                cfg.map_to_screen = not cfg.map_to_screen
-                print("map_to_screen (engine still returns both coords):", cfg.map_to_screen)
-            elif key == ord('p'):
-                cfg.platform = 'android' if cfg.platform == 'laptop' else 'laptop'
-                print("platform:", cfg.platform)
-            elif key == ord('c'):
+            elif key==ord('m'):
+                cfg.preview_mirror = not cfg.preview_mirror; print("preview_mirror:", cfg.preview_mirror)
+            elif key==ord('p'):
+                cfg.platform = 'android' if cfg.platform=='laptop' else 'laptop'; print("platform:", cfg.platform)
+            elif key==ord('c'):
                 calibrate_forward(engine)
     finally:
         cap.release(); cv2.destroyAllWindows()
 
-
-def calibrate_forward(engine: GestureEngine, duration: float = 2.0):
-    print("Calibration: point at camera for 2s...")
+def calibrate_forward(engine:GestureEngine, duration=2.0):
+    # quick calibration helper; same approach as before
+    print("Calibration: point index at camera for 2s...")
     cap = cv2.VideoCapture(0)
-    t0 = time.time()
-    vals = []
+    t0 = time.time(); vals=[]
     try:
-        while time.time() - t0 < duration:
+        while time.time()-t0 < duration:
             ok, frame = cap.read()
-            if not ok:
-                break
-            img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            img_rgb.flags.writeable = False
-            res = engine.hands.process(img_rgb)
-            img_rgb.flags.writeable = True
-            if res.multi_hand_landmarks:
+            if not ok: break
+            img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB); img_rgb.flags.writeable=False
+            res = engine.hands.process(img_rgb); img_rgb.flags.writeable=True
+            if res and res.multi_hand_landmarks:
                 lms = _lm_array(res.multi_hand_landmarks[0])
-                vx = lms[8][0] - lms[6][0]
-                vz = lms[8][2] - lms[6][2]
-                norm = math.sqrt(vx*vx + (lms[8][1]-lms[6][1])**2 + vz*vz) + 1e-9
-                forward = -vz / norm
-                vals.append(forward)
+                vx = lms[8][0] - lms[6][0]; vz = lms[8][2] - lms[6][2]
+                norm = math.sqrt(vx*vx + (lms[8][1]-lms[6][1])**2 + vz*vz)+1e-9
+                vals.append(-vz/norm)
             cv2.waitKey(1)
     finally:
         cap.release()
     if vals:
-        avg = sum(vals)/len(vals)
-        print(f"Calib avg forward score: {avg:.3f}. If this < forward_dot_thresh, lower the threshold.")
+        avg = sum(vals)/len(vals); print("avg forward:", avg)
     else:
-        print("No hand detected during calibration.")
+        print("no hand detected")
 
-
-if __name__ == "__main__":
+if __name__=="__main__":
     demo()
