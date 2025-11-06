@@ -20,9 +20,11 @@ while True:
         break
 
     frame = cv2.flip(frame, 1)
-    state = engine.process_frame(frame)
-
-    cv2.putText(frame, f"Action: {state['action']}", (10, 30),
+    state = engine.process(frame)
+    
+    gesture_state = state.get("state", "UNKNOWN")
+    events = ", ".join(state.get("events", []))
+    cv2.putText(frame, f"State: {gesture_state} | Events: {events}", (10, 30),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.imshow("Gesture Controller", frame)
 
@@ -31,4 +33,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
-print("👋 Controller stopped.")
+print("Controller stopped.")
