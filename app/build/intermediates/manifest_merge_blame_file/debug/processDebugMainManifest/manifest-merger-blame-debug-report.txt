@@ -1,0 +1,228 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.palma"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:6:5-65
+12-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:6:22-62
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+13-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:7:5-77
+13-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:7:22-74
+14    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+14-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:8:5-78
+14-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:8:22-75
+15
+16    <uses-feature android:name="android.hardware.camera.any" />
+16-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:9:5-64
+16-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:9:19-61
+17
+18    <permission
+18-->[androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+19        android:name="com.palma.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.palma.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+22-->[androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+23    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+24-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+24-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:22-76
+25    <uses-permission android:name="android.permission.INTERNET" />
+25-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+25-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:22-64
+26
+27    <application
+27-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:11:5-47:19
+28        android:allowBackup="true"
+28-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:12:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+30        android:debuggable="true"
+31        android:extractNativeLibs="false"
+32        android:icon="@mipmap/ic_launcher"
+32-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:13:9-43
+33        android:label="palma"
+33-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:14:9-30
+34        android:roundIcon="@mipmap/ic_launcher_round"
+34-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:15:9-54
+35        android:supportsRtl="true"
+35-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:16:9-35
+36        android:testOnly="true"
+37        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+37-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:18:9-77
+38        android:usesCleartextTraffic="true" >
+38-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:17:9-44
+39
+40        <!-- Accessibility Service -->
+41        <service
+41-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:21:9-32:19
+42            android:name="com.palma.access.PalmaService"
+42-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:22:13-48
+43            android:exported="true"
+43-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:23:13-36
+44            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+44-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:24:13-79
+45            <intent-filter>
+45-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:25:13-27:29
+46                <action android:name="android.accessibilityservice.AccessibilityService" />
+46-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:26:17-92
+46-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:26:25-89
+47            </intent-filter>
+48
+49            <meta-data
+49-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:29:13-31:70
+50                android:name="android.accessibilityservice"
+50-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:30:17-60
+51                android:resource="@xml/palma_accessibility_config" />
+51-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:31:17-67
+52        </service>
+53
+54        <!-- Main Activity -->
+55        <activity
+55-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:35:9-45:20
+56            android:name="com.palma.MainActivity"
+56-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:36:13-41
+57            android:configChanges="keyboardHidden|orientation|screenSize"
+57-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:39:13-74
+58            android:exported="true"
+58-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:37:13-36
+59            android:screenOrientation="portrait"
+59-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:38:13-49
+60            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
+60-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:40:13-81
+61            <intent-filter>
+61-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:41:13-44:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:42:17-69
+62-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:42:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:43:17-77
+64-->/Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:43:27-74
+65            </intent-filter>
+66        </activity>
+67
+68        <service
+68-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
+69            android:name="androidx.camera.core.impl.MetadataHolderService"
+69-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:25:13-75
+70            android:enabled="false"
+70-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:26:13-36
+71            android:exported="false" >
+71-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:27:13-37
+72            <meta-data
+72-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:30:13-32:89
+73                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+73-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:31:17-103
+74                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+74-->[androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:32:17-86
+75        </service>
+76
+77        <provider
+77-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+78            android:name="androidx.startup.InitializationProvider"
+78-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:25:13-67
+79            android:authorities="com.palma.androidx-startup"
+79-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:26:13-68
+80            android:exported="false" >
+80-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:27:13-37
+81            <meta-data
+81-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+82-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+83                android:value="androidx.startup" />
+83-->[androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+84            <meta-data
+84-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+85                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+85-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+86                android:value="androidx.startup" />
+86-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+87            <meta-data
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+88                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+89                android:value="androidx.startup" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+90        </provider>
+91
+92        <receiver
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+93            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+94            android:directBootAware="false"
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+95            android:enabled="true"
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+96            android:exported="true"
+96-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+97            android:permission="android.permission.DUMP" >
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+99                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+100            </intent-filter>
+101            <intent-filter>
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+102                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+102-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+103            </intent-filter>
+104            <intent-filter>
+104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+105                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+106            </intent-filter>
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+108                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+109            </intent-filter>
+110        </receiver>
+111
+112        <service
+112-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+113            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+113-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+114            android:exported="false" >
+114-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+115            <meta-data
+115-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+116                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+116-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+117                android:value="cct" />
+117-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+118        </service>
+119        <service
+119-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+120            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+120-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+121            android:exported="false"
+121-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+122            android:permission="android.permission.BIND_JOB_SERVICE" >
+122-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+123        </service>
+124
+125        <receiver
+125-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+126            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+126-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
+127            android:exported="false" />
+127-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+128    </application>
+129
+130</manifest>

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.palma.app-mergeDebugResources-34:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f5977243d2d2d289d3c04d497173e5d/transformed/appcompat-1.7.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,433 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:2:1-49:12
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:2:1-49:12
+MERGED from [com.google.android.material:material:1.12.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/80bbd1d7735509e0fda92bd1b1f7249f/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.camera:camera-video:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/cbf18eadb3fadb1fa60967662e2f8e0d/transformed/jetified-camera-video-1.3.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-lifecycle:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a4a31a4ca9bd4fb1d9acd6f2a65f5669/transformed/jetified-camera-lifecycle-1.3.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:17:1-36:12
+MERGED from [androidx.camera:camera-view:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/08487bd7f64ee2e83f59dbe2855c9b4e/transformed/jetified-camera-view-1.3.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/9915e4e85ad3ebb2d9bc5f179ec05df9/transformed/jetified-appcompat-resources-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/5c12262de3f7263f9ac5be168fbc8a1a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f5977243d2d2d289d3c04d497173e5d/transformed/appcompat-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/8b9ee8e133348a0f57289c9fbc3d0bb6/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.5.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6fbd3d29430ce74fabb60ba02aeaa898/transformed/fragment-1.5.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/313aba4edc49baf06c105ead6b363fcc/transformed/jetified-emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.activity:activity:1.8.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c9a854956046fad64813e54738cf2280/transformed/jetified-activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f2b5f68b06132c947883e7bdf00bd900/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/787aa9635384f4c1732852561495d1cb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.5.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/4f8c57b8391a15f65818514e2cb11341/transformed/transition-1.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0c14c35f3b6da1a6d500ba4d4b01cd9f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/06efd9da95b21d38d75f89fbd584ec25/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c6451c581798722ed067c902e70084d0/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/684665621fa8b584b0c781ff3385ebd4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/1d14bc1c414f4b17f54e49dc2baec367/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/182c4bde99268296682e7062deac09ad/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f3391106edcab73a6b01d590f93f77b/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2f4690cae79f9e32b87ef82b71521596/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0097637fde561e6e464a6d4a7385fc18/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/77400aa6cc352d3f7e7fa41cbce952a2/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/af5a016bbbe5213812f9f1c4d94a7d66/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0ddea599f12473ee1277e09cd9d3e620/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/e3f20416da515873bc0f7f09931df62f/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f94b4bace28d142ec39902a8109625fb/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c2464e5acce255b5d92254b9073f82d5/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/cf111f81e5126a203ead57b57273da22/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.mediapipe:tasks-vision:0.20230731] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/d07af7f6d4d3297dd11be5711536bd08/transformed/jetified-tasks-vision-0.20230731/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/14b0495358382f638b7ff123bf48298f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/02b15dc34a40f3375d8492a6c89c4111/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/ffc8506054f3b478abb9a530a0454198/transformed/exifinterface-1.3.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c78892a9f4e6d64fb395a5ae970eed6b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/daca8bac379d8085d271ca073ec36411/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f144ed211bceb6625346b210ab98fc3/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.mediapipe:tasks-core:0.20230731] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/dfbc13ee083c0f125af593e72315001e/transformed/jetified-tasks-core-0.20230731/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2e13574a2ed55e3a4b83a1f7b7bb7eee/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:15:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/d18369921151558e8de73096e0c8e829/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2eebc5891a9b902d27575005713609d7/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/e3ba93b0bef6e197265d88f5a0dc8fcf/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/01fb713179337c91f479020a492fa773/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f027dc45834b2b8409a2cef813730a2/transformed/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:15:1-23:12
+	package
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:3:5-24
+		INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:6:5-65
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:6:22-62
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:7:5-77
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:7:22-74
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:8:5-78
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:8:22-75
+uses-feature#android.hardware.camera.any
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:9:5-64
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:9:19-61
+application
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:11:5-47:19
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:11:5-47:19
+MERGED from [com.google.android.material:material:1.12.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/80bbd1d7735509e0fda92bd1b1f7249f/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.12.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/80bbd1d7735509e0fda92bd1b1f7249f/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:23:5-34:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/5c12262de3f7263f9ac5be168fbc8a1a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/5c12262de3f7263f9ac5be168fbc8a1a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c78892a9f4e6d64fb395a5ae970eed6b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c78892a9f4e6d64fb395a5ae970eed6b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:25:5-39:19
+	android:extractNativeLibs
+		INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:14:9-30
+	android:roundIcon
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:15:9-54
+	android:icon
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:18:9-77
+	android:usesCleartextTraffic
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:17:9-44
+service#com.palma.access.PalmaService
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:21:9-32:19
+	android:exported
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:23:13-36
+	android:permission
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:24:13-79
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:22:13-48
+intent-filter#action:name:android.accessibilityservice.AccessibilityService
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:25:13-27:29
+action#android.accessibilityservice.AccessibilityService
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:26:17-92
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:26:25-89
+meta-data#android.accessibilityservice
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:29:13-31:70
+	android:resource
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:31:17-67
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:30:17-60
+activity#com.palma.MainActivity
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:35:9-45:20
+	android:screenOrientation
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:38:13-49
+	android:exported
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:37:13-36
+	android:configChanges
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:39:13-74
+	android:theme
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:40:13-81
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:36:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:41:13-44:29
+action#android.intent.action.MAIN
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:42:17-69
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:42:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:43:17-77
+	android:name
+		ADDED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml:43:27-74
+uses-sdk
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.12.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/80bbd1d7735509e0fda92bd1b1f7249f/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.12.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/80bbd1d7735509e0fda92bd1b1f7249f/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.camera:camera-video:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/cbf18eadb3fadb1fa60967662e2f8e0d/transformed/jetified-camera-video-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-video:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/cbf18eadb3fadb1fa60967662e2f8e0d/transformed/jetified-camera-video-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a4a31a4ca9bd4fb1d9acd6f2a65f5669/transformed/jetified-camera-lifecycle-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-lifecycle:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a4a31a4ca9bd4fb1d9acd6f2a65f5669/transformed/jetified-camera-lifecycle-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.camera:camera-view:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/08487bd7f64ee2e83f59dbe2855c9b4e/transformed/jetified-camera-view-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.camera:camera-view:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/08487bd7f64ee2e83f59dbe2855c9b4e/transformed/jetified-camera-view-1.3.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/9915e4e85ad3ebb2d9bc5f179ec05df9/transformed/jetified-appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/9915e4e85ad3ebb2d9bc5f179ec05df9/transformed/jetified-appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/5c12262de3f7263f9ac5be168fbc8a1a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/5c12262de3f7263f9ac5be168fbc8a1a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f5977243d2d2d289d3c04d497173e5d/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f5977243d2d2d289d3c04d497173e5d/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/8b9ee8e133348a0f57289c9fbc3d0bb6/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/8b9ee8e133348a0f57289c9fbc3d0bb6/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6fbd3d29430ce74fabb60ba02aeaa898/transformed/fragment-1.5.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6fbd3d29430ce74fabb60ba02aeaa898/transformed/fragment-1.5.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/313aba4edc49baf06c105ead6b363fcc/transformed/jetified-emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/313aba4edc49baf06c105ead6b363fcc/transformed/jetified-emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c9a854956046fad64813e54738cf2280/transformed/jetified-activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c9a854956046fad64813e54738cf2280/transformed/jetified-activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f2b5f68b06132c947883e7bdf00bd900/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f2b5f68b06132c947883e7bdf00bd900/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/787aa9635384f4c1732852561495d1cb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/787aa9635384f4c1732852561495d1cb/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.5.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/4f8c57b8391a15f65818514e2cb11341/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.5.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/4f8c57b8391a15f65818514e2cb11341/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0c14c35f3b6da1a6d500ba4d4b01cd9f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0c14c35f3b6da1a6d500ba4d4b01cd9f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/06efd9da95b21d38d75f89fbd584ec25/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/06efd9da95b21d38d75f89fbd584ec25/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c6451c581798722ed067c902e70084d0/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c6451c581798722ed067c902e70084d0/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/684665621fa8b584b0c781ff3385ebd4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/684665621fa8b584b0c781ff3385ebd4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/1d14bc1c414f4b17f54e49dc2baec367/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/1d14bc1c414f4b17f54e49dc2baec367/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/182c4bde99268296682e7062deac09ad/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/182c4bde99268296682e7062deac09ad/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f3391106edcab73a6b01d590f93f77b/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f3391106edcab73a6b01d590f93f77b/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2f4690cae79f9e32b87ef82b71521596/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2f4690cae79f9e32b87ef82b71521596/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0097637fde561e6e464a6d4a7385fc18/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0097637fde561e6e464a6d4a7385fc18/transformed/jetified-savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/77400aa6cc352d3f7e7fa41cbce952a2/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/77400aa6cc352d3f7e7fa41cbce952a2/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/af5a016bbbe5213812f9f1c4d94a7d66/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/af5a016bbbe5213812f9f1c4d94a7d66/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0ddea599f12473ee1277e09cd9d3e620/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/0ddea599f12473ee1277e09cd9d3e620/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/e3f20416da515873bc0f7f09931df62f/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/e3f20416da515873bc0f7f09931df62f/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f94b4bace28d142ec39902a8109625fb/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f94b4bace28d142ec39902a8109625fb/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c2464e5acce255b5d92254b9073f82d5/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c2464e5acce255b5d92254b9073f82d5/transformed/jetified-core-ktx-1.13.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/cf111f81e5126a203ead57b57273da22/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/cf111f81e5126a203ead57b57273da22/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.mediapipe:tasks-vision:0.20230731] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/d07af7f6d4d3297dd11be5711536bd08/transformed/jetified-tasks-vision-0.20230731/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:tasks-vision:0.20230731] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/d07af7f6d4d3297dd11be5711536bd08/transformed/jetified-tasks-vision-0.20230731/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/14b0495358382f638b7ff123bf48298f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/14b0495358382f638b7ff123bf48298f/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/02b15dc34a40f3375d8492a6c89c4111/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/02b15dc34a40f3375d8492a6c89c4111/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/ffc8506054f3b478abb9a530a0454198/transformed/exifinterface-1.3.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/ffc8506054f3b478abb9a530a0454198/transformed/exifinterface-1.3.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c78892a9f4e6d64fb395a5ae970eed6b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/c78892a9f4e6d64fb395a5ae970eed6b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/daca8bac379d8085d271ca073ec36411/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/daca8bac379d8085d271ca073ec36411/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f144ed211bceb6625346b210ab98fc3/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f144ed211bceb6625346b210ab98fc3/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.mediapipe:tasks-core:0.20230731] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/dfbc13ee083c0f125af593e72315001e/transformed/jetified-tasks-core-0.20230731/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:tasks-core:0.20230731] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/dfbc13ee083c0f125af593e72315001e/transformed/jetified-tasks-core-0.20230731/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2e13574a2ed55e3a4b83a1f7b7bb7eee/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2e13574a2ed55e3a4b83a1f7b7bb7eee/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/d18369921151558e8de73096e0c8e829/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/d18369921151558e8de73096e0c8e829/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2eebc5891a9b902d27575005713609d7/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/2eebc5891a9b902d27575005713609d7/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/e3ba93b0bef6e197265d88f5a0dc8fcf/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/e3ba93b0bef6e197265d88f5a0dc8fcf/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/01fb713179337c91f479020a492fa773/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/01fb713179337c91f479020a492fa773/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f027dc45834b2b8409a2cef813730a2/transformed/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f027dc45834b2b8409a2cef813730a2/transformed/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+	android:targetSdkVersion
+		INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/nael/AndroidStudioProjects/Palm-Ctrl/app/src/main/AndroidManifest.xml
+service#androidx.camera.core.impl.MetadataHolderService
+ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:24:9-33:19
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:29:9-33:78
+MERGED from [androidx.camera:camera-core:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/f26d336a678bbb20288803be9bec0275/transformed/jetified-camera-core-1.3.4/AndroidManifest.xml:29:9-33:78
+	tools:node
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:29:13-31
+	android:enabled
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:26:13-36
+	android:exported
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:28:13-75
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:25:13-75
+meta-data#androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER
+ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:30:13-32:89
+	android:value
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:32:17-86
+	android:name
+		ADDED from [androidx.camera:camera-camera2:1.3.4] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b21ddcee92c54c9de1ac74bc1a35fc46/transformed/jetified-camera-camera2-1.3.4/AndroidManifest.xml:31:17-103
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/521aceef603b243ced440c47682904f3/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/aa98d6eed15735f7433d2a7db645f804/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+permission#com.palma.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+uses-permission#com.palma.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/a799df09f87a62152fadb93cf4a654e8/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/b05c1ba87a87bc68356ff49a9cb779d2/transformed/jetified-lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/386dfe8195cbd3836e38f277d2fa6c14/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:22-64
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/28b1388b4491328c1c433e4aa7b4ffa6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/nael/.gradle/caches/9.0-milestone-1/transforms/00f79e312d8dfa52e6a9c75ddfec3eaa/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:33:13-132

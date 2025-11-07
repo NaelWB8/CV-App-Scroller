@@ -9,29 +9,24 @@ import android.view.View
 
 class CursorOverlay @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr) {
+    attrs: AttributeSet? = null
+) : View(context, attrs) {
 
-    private val paint = Paint().apply {
+    private var cursorX = 0f
+    private var cursorY = 0f
+    private val cursorPaint = Paint().apply {
         color = Color.RED
         style = Paint.Style.FILL
-        isAntiAlias = true
     }
-
-    private var cursorX = -1f
-    private var cursorY = -1f
 
     fun updateCursor(x: Float, y: Float) {
         cursorX = x
         cursorY = y
-        invalidate()
+        invalidate() // Redraw the view
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        if (cursorX >= 0 && cursorY >= 0) {
-            canvas.drawCircle(cursorX, cursorY, 25f, paint)
-        }
+        canvas.drawCircle(cursorX, cursorY, 20f, cursorPaint)
     }
 }
