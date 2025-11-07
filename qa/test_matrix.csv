@@ -1,0 +1,6 @@
+Test ID, Gesture      , Expected Behavior                                  , Actual Result,                 Pass/Fail, Notes
+01     , MOVE         , Cursor should move smoothly with finger motion     , Cursor follows hand smoothly,      ✅,    Slight latency when lighting is dim
+02     , CLICK        , Single click when releasing pinch                  , Double-click detected sometimes,   ⚠️,    Need debounce
+03     , SCROLL_UP    , Scroll up when palm clenched and moved upward      , Page scrolls up smoothly,          ✅,
+04     , SCROLL_DOWN  , Scroll down when palm clenched and moved downward  , Page scrolls down with delay,      ⚠️,    Slight delay at >80 cm distance
+05     , NO_HAND      , No movement or clicks when no hand detected        , No actions triggered,              ✅,
