@@ -6,6 +6,7 @@ import android.graphics.*
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
+import android.util.Size
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -24,11 +25,13 @@ import com.palma.gesture.EngineOut
 import com.palma.gesture.GestureEngine
 import com.palma.ui.CursorOverlay
 import java.io.ByteArrayOutputStream
+import java.util.concurrent.Executors
 import java.nio.ByteBuffer
 
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "MP"
+    private val analysisExecutor = Executors.newSingleThreadExecutor()
 
     private lateinit var previewView: PreviewView
     private lateinit var overlay: CursorOverlay
@@ -75,14 +78,17 @@ class MainActivity : AppCompatActivity() {
             .setBaseOptions(base)
             .setRunningMode(RunningMode.LIVE_STREAM)
             .setNumHands(1)
-            .setMinHandDetectionConfidence(0.3f)  // lower threshold, more forgiving
-            .setMinTrackingConfidence(0.3f)
-            .setMinHandPresenceConfidence(0.3f)
-            .setResultListener { result, _ ->
+            .setMinHandDetectionConfidence(0.2f)
+            .setMinTrackingConfidence(0.2f)
+            .setMinHandPresenceConfidence(0.2f)
+            .setResultListener { result, _image ->
                 try {
                     val out = engine.process(result)
-                    if (out.cursor.x.isNaN() || out.cursor.y.isNaN()) return@setResultListener
-                    runOnUiThread { renderAndAct(out) }
+                    if (!out.cursor.x.isNaN() && !out.cursor.y.isNaN()) {
+                        runOnUiThread { renderAndAct(out) }
+                    } else {
+                        Log.w(TAG, "Engine produced NaN coords")
+                    }
                 } catch (t: Throwable) {
                     Log.e(TAG, "Result listener exception", t)
                 }
@@ -91,62 +97,67 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         landmarker = HandLandmarker.createFromOptions(this, opts)
-        Log.i(TAG, "HandLandmarker initialized (LIVE_STREAM, adjusted thresholds)")
+        Log.i(TAG, "HandLandmarker initialized (LIVE_STREAM)")
     }
 
     private fun startCamera() {
         val providerFuture = ProcessCameraProvider.getInstance(this)
         providerFuture.addListener({
             val provider = providerFuture.get()
-            val preview = Preview.Builder().build().apply {
-                setSurfaceProvider(previewView.surfaceProvider)
-            }
+
+            val preview = Preview.Builder()
+                .build()
+                .also { it.setSurfaceProvider(previewView.surfaceProvider) }
 
             val analysis = ImageAnalysis.Builder()
-                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888)
-                .setTargetResolution(Size(640, 480)) // optional but helps performance
-                .build()
-                .apply {
-                    setAnalyzer(ContextCompat.getMainExecutor(this@MainActivity)) { proxy ->
+                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                .build().apply {
+                    setAnalyzer(analysisExecutor) { imageProxy ->
                         try {
-                            val mpImage = proxy.toMpImage(isFrontCamera)
-                            landmarker.detectAsync(mpImage, SystemClock.uptimeMillis())
+                            // Convert ImageProxy to Bitmap properly
+                            val bmp = imageProxy.toBitmapWithRotationAndMirror(isFrontCamera)
+                            val mpImage = BitmapImageBuilder(bmp).build()
+                            val timestamp = SystemClock.uptimeMillis()
+                            landmarker.detectAsync(mpImage, timestamp)
                         } catch (e: Exception) {
-                            Log.e(TAG, "Frame analyze error", e)
+                            Log.e(TAG, "Analyzer error", e)
                         } finally {
-                            proxy.close()
+                            imageProxy.close()
                         }
                     }
+
                 }
 
             provider.unbindAll()
             val selector = if (isFrontCamera) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
             provider.bindToLifecycle(this, selector, preview, analysis)
-
             Log.i(TAG, "Camera started (front=$isFrontCamera)")
         }, ContextCompat.getMainExecutor(this))
     }
 
     private var lastX = 0f
     private var lastY = 0f
-    private var smoothFactor = 0.6f  // adjust 0.5–0.8 depending on stability
+    private var smoothFactor = 0.3f  // more responsive cursor
 
     private fun renderAndAct(out: EngineOut) {
-        if (!::overlay.isInitialized || overlay.width == 0) return
+        if (!::overlay.isInitialized || overlay.width == 0 || overlay.height == 0) return
 
-        // No more (1 - x) for front camera
-        val normalizedX = out.cursor.x.coerceIn(0f, 1f)
+        // Correct mirroring for front camera here only
+        val normalizedX = if (isFrontCamera) 1f - out.cursor.x.coerceIn(0f, 1f)
+                          else out.cursor.x.coerceIn(0f, 1f)
         val normalizedY = out.cursor.y.coerceIn(0f, 1f)
 
-        val px = normalizedX * overlay.width
-        val py = normalizedY * overlay.height
-        overlay.updateCursor(px, py)
+        if (normalizedX.isNaN() || normalizedY.isNaN()) return
+
+        val pxView = normalizedX.coerceIn(0f, 1f) * overlay.width
+        val pyView = normalizedY.coerceIn(0f, 1f) * overlay.height
+        overlay.updateCursor(pxView, pyView)
 
         val loc = IntArray(2)
         overlay.getLocationOnScreen(loc)
-        val screenX = px + loc[0]
-        val screenY = py + loc[1]
+        val screenX = pxView + loc[0]
+        val screenY = pyView + loc[1]
 
         PalmaService.instance?.let { svc ->
             if ("HOLD_START" in out.events) svc.downAt(screenX, screenY)
@@ -172,13 +183,12 @@ class MainActivity : AppCompatActivity() {
         return nv21
     }
 
-    // Converts YUV → ARGB with rotation + mirror correction
     private fun ImageProxy.toMpImage(isFrontCamera: Boolean): MPImage {
         val bmp = toBitmapWithRotationAndMirror(isFrontCamera)
         return BitmapImageBuilder(bmp).build()
     }
 
-    // Core bitmap conversion from YUV to JPEG then to Bitmap
+    // Rotation only, no mirror
     private fun ImageProxy.toBitmapWithRotationAndMirror(isFrontCamera: Boolean): Bitmap {
         val nv21 = yuv420ToNv21(this)
         val yuv = YuvImage(nv21, ImageFormat.NV21, width, height, null)
@@ -187,17 +197,12 @@ class MainActivity : AppCompatActivity() {
         val bytes = out.toByteArray()
         var bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 
-        // Rotate image according to camera orientation
         val matrix = Matrix()
         matrix.postRotate(imageInfo.rotationDegrees.toFloat())
 
-        // Mirror horizontally if it's a front camera
-        if (isFrontCamera) {
-            matrix.postScale(-1f, 1f)
-        }
+        // ❌ Removed mirror step here
 
         bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         return bitmap
     }
-
 }

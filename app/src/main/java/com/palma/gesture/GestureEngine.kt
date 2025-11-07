@@ -15,13 +15,13 @@ class GestureEngine {
     private val towardCamZ = -0.03f
     private val thumbSepMin = 0.30
 
-    // Sensitivity and smoothing
-    private val gainX = 1.6f
-    private val gainY = 1.6f
+    // Sensitivity and smoothing (tune these)
+    private val gainX = 2.2f   // increased gain for livelier response
+    private val gainY = 2.0f
     private val smooth = 0.0f
     private val minStable = 2
 
-    // Cursor state
+    // Cursor / state
     private var cx = 0.5f
     private var cy = 0.5f
     private var lastIx = 0f
@@ -31,14 +31,14 @@ class GestureEngine {
     private var pending: String? = null
     private var pendingCount = 0
 
-    // New smoother state
+    // Smoothing
     private var smoothedX = 0.5f
     private var smoothedY = 0.5f
     private val alpha = 0.65f // higher = smoother but slower
-    private val deadzone = 0.015f // ignore micro-movement jitter
+    private val deadzone = 0.01f // ignore micro-movement jitter
 
-    // Amplification control
-    private val amplifyFactor = 1.8f // try 1.5–2.5 depending on preference
+    // safety clamps
+    private val maxDelta = 0.35f // if dx/dy bigger than this, treat as glitch
 
     fun process(res: HandLandmarkerResult?): EngineOut {
         var newState = "IDLE"
@@ -60,51 +60,65 @@ class GestureEngine {
             }
 
             if (newState == "POINTER" || newState == "HOLD") {
-                val ix = 1f - p(8).x()
+                // IMPORTANT: use raw normalized landmark as-is (0..1, origin = left/top of image)
+                val ix = p(8).x()
                 val iy = p(8).y()
 
-                if (!haveLast) {
+                // sanity check: ignore bad coords
+                if (ix.isNaN() || iy.isNaN() || ix < -0.2f || ix > 1.2f || iy < -0.2f || iy > 1.2f) {
+                    // don't update haveLast; treat as transient miss
+                } else {
+                    if (!haveLast) {
+                        // anchor positions on first good detection to avoid jump-to-edge
+                        lastIx = ix
+                        lastIy = iy
+                        cx = ix.coerceIn(0f, 1f)
+                        cy = iy.coerceIn(0f, 1f)
+                        smoothedX = cx
+                        smoothedY = cy
+                        haveLast = true
+                    }
+
+                    // compute deltas
+                    val rawDx = (ix - lastIx) * gainX
+                    val rawDy = (iy - lastIy) * gainY
                     lastIx = ix
                     lastIy = iy
-                    haveLast = true
+
+                    // clamp improbable spikes (caused by temporary bad detection)
+                    val dx = when {
+                        rawDx.isNaN() -> 0f
+                        abs(rawDx) > maxDelta -> 0f
+                        abs(rawDx) > deadzone -> rawDx
+                        else -> 0f
+                    }
+                    val dy = when {
+                        rawDy.isNaN() -> 0f
+                        abs(rawDy) > maxDelta -> 0f
+                        abs(rawDy) > deadzone -> rawDy
+                        else -> 0f
+                    }
+
+                    // target position (delta-based movement)
+                    val targetX = (cx + dx).coerceIn(0f, 1f)
+                    val targetY = (cy + dy).coerceIn(0f, 1f)
+
+                    // exponential smoothing
+                    smoothedX = alpha * smoothedX + (1 - alpha) * targetX
+                    smoothedY = alpha * smoothedY + (1 - alpha) * targetY
+
+                    cx = cx * smooth + smoothedX * (1 - smooth)
+                    cy = cy * smooth + smoothedY * (1 - smooth)
+
+                    outX = cx
+                    outY = cy
                 }
-
-                // Normalize movement delta
-                val dx = (ix - lastIx) * gainX
-                val dy = (iy - lastIy) * gainY
-                lastIx = ix
-                lastIy = iy
-
-                // Apply deadzone
-                val moveX = if (abs(dx) > deadzone) dx else 0f
-                val moveY = if (abs(dy) > deadzone) dy else 0f
-
-                // Target position
-                val targetX = (cx + moveX).coerceIn(0f, 1f)
-                val targetY = (cy + moveY).coerceIn(0f, 1f)
-
-                // Exponential smoothing
-                smoothedX = alpha * smoothedX + (1 - alpha) * targetX
-                smoothedY = alpha * smoothedY + (1 - alpha) * targetY
-
-                // --- AMPLIFY NORMALIZED CURSOR MOVEMENT ---
-                val amplifiedX = 0.5f + (smoothedX - 0.5f) * amplifyFactor
-                val amplifiedY = 0.5f + (smoothedY - 0.5f) * amplifyFactor
-                val finalX = amplifiedX.coerceIn(0f, 1f)
-                val finalY = amplifiedY.coerceIn(0f, 1f)
-                // ------------------------------------------------
-
-                cx = cx * smooth + finalX * (1 - smooth)
-                cy = cy * smooth + finalY * (1 - smooth)
-
-                outX = cx
-                outY = cy
             } else {
                 haveLast = false
             }
         } else haveLast = false
 
-        // Stabilize state transitions
+        // stabilize state transitions
         if (newState == state) {
             pending = null
             pendingCount = 0
