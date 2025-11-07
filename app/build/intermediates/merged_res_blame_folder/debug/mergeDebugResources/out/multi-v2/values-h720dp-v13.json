@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.palma.app-mergeDebugResources-34:/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/nael/.gradle/caches/9.0-milestone-1/transforms/6f5977243d2d2d289d3c04d497173e5d/transformed/appcompat-1.7.0/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

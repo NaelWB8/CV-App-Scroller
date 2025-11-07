@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">palma</string>
+    <string name="palma_service_description">Palma gesture accessibility service</string>
+</resources>
