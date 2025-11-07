@@ -12,10 +12,9 @@ class GestureEngine {
     private val angleFold = 130.0
     private val towardCamZ = -0.03f
     private val thumbSepMin = 0.30
-
     private val gainX = 1.6f
     private val gainY = 1.6f
-    private val smooth = 0.6f
+    private val smooth = 0.35f
     private val minStable = 2
 
     private var cx = 0.5f; private var cy = 0.5f
@@ -30,7 +29,6 @@ class GestureEngine {
         val hand = res?.landmarks()?.firstOrNull()
         if (hand != null) {
             fun p(i: Int) = hand[i]
-
             val pointing = isIndexPointing(p(5), p(6), p(7), p(8))
             val thumbOut = isThumbOut(p(2), p(3), p(4), p(8), p(0), p(9))
             val thumbFold = isThumbFolded(p(2), p(3), p(4))
@@ -48,7 +46,6 @@ class GestureEngine {
                 val dx = (ix - lastIx) * gainX
                 val dy = (iy - lastIy) * gainY
                 lastIx = ix; lastIy = iy
-
                 val tx = (cx + dx).coerceIn(0f, 1f)
                 val ty = (cy + dy).coerceIn(0f, 1f)
                 cx = cx * smooth + tx * (1 - smooth)
@@ -95,7 +92,7 @@ class GestureEngine {
     private fun angle(a: NormalizedLandmark, b: NormalizedLandmark, c: NormalizedLandmark): Double {
         val v1x = a.x() - b.x(); val v1y = a.y() - b.y(); val v1z = a.z() - b.z()
         val v2x = c.x() - b.x(); val v2y = c.y() - b.y(); val v2z = c.z() - b.z()
-        val num = (v1x * v2x + v1y * v1y + v1z * v2z).toDouble()
+        val num = (v1x * v2x + v1y * v2y + v1z * v2z).toDouble()
         val d1 = sqrt((v1x * v1x + v1y * v1y + v1z * v1z).toDouble())
         val d2 = sqrt((v2x * v2x + v2y * v2y + v2z * v2z).toDouble())
         val cos = (num / (d1 * d2)).coerceIn(-1.0, 1.0)

@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">palma</string>
-    <string name="palma_service_description">Palma lets you control your Android cursor using hand gestures detected by the camera.</string>
+    <string name="palma_service_description">Palma gesture accessibility service</string>
 </resources>
